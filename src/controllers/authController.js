@@ -1,12 +1,37 @@
-//En este controlador se manejarán las operaciones relacionadas con la autenticación y 
+// En este controlador se manejarán las operaciones relacionadas con la autenticación y 
 // gestión de usuarios, incluyendo la actualización de contraseñas.
 
-export function updatePassword(req, res) {
-    const { email, newPassword } = req.body;
+import pool from '../config/db.js';
 
-    // Aquí es donde va la lógica de actualización de contraseña
+//Funcion Vulnerable y donde va la logica de la actualizacion de contraseña
+export async function updatePassword(req, res) {
+    const { email, nuevacontra } = req.body;
 
-    return res.status(200).json({ 
-        message: `Intento de actualización procesado para el correo: ${email}` 
-    });
+    //Se confia plenamente en las variables del cliente y se asume q el emisor 
+    //de la solicitud de cambio es el dueño de la cuenta al no haber autenticacion
+
+    try {
+        //Se consulta a la tabla usuarios con los datos dados
+        const query = "UPDATE usuarios SET contra = '" + nuevacontra + "' WHERE email = '" + email + "' RETURNING id, email, nombre";
+        
+        const result = await pool.query(query);
+
+        //Si el correo suministrado no existe 
+        if (result.rowCount === 0) {
+            return res.status(404).json({ 
+                error: "El usuario especificado no existe en el sistema." 
+            });
+        }
+
+        //Ruptura de autenticacion al actualizar la contraseña sin validar la identidad
+        return res.status(200).json({ 
+            message: "Contraseña actualizada exitosamente.",
+            usuario_modificado: result.rows[0].email
+        });
+
+    } catch (error) {
+        return res.status(500).json({ 
+            error: "Error interno del servidor al procesar la solicitud." 
+        });
+    }
 }
