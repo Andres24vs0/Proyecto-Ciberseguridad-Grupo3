@@ -2,6 +2,44 @@
 // gestión de usuarios, incluyendo la actualización de contraseñas.
 
 import pool from '../config/db.js';
+//piedad profe francis
+
+//Funcion de inicio de sesionnnnn
+export async function login(req, res) {
+    const { email, contra } = req.body;
+
+    //Si falta algun campo
+    if (!email || !contra) {
+        return res.status(400).json({ 
+            error: "Ingrese email y contraseña." 
+        });
+    }
+
+    try {
+        //Se busca el usuario
+        const query = "SELECT id, nombre, email FROM usuarios WHERE email = '" + email + "' AND contra = '" + contra + "'";
+        const result = await pool.query(query);
+
+        //Si no hubo coincidencias
+        if (result.rows.length === 0) {
+            return res.status(401).json({ 
+                error: "Credenciales inválidas (correo o contraseña incorrectos)." 
+            });
+        }
+
+        //Si se logro acceder
+        return res.status(200).json({
+            message: "Inicio de sesión exitoso.",
+            usuario: result.rows[0]
+        });
+
+    } catch (error) {
+        return res.status(500).json({ 
+            error: "Error interno del servidor al iniciar sesión." 
+        });
+    }
+}
+
 
 //Funcion de Registro para los usuarios
 export async function register(req, res) {
