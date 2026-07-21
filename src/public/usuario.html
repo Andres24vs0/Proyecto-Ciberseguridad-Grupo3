@@ -1,1 +1,45 @@
-Vista de usuario
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi cuenta | Tienda</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <span class="brand">Tienda</span>
+    <nav>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="usuario.html" class="active">Mi cuenta</a>
+      <button id="logout-btn" class="link-btn">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  <main class="content narrow">
+    <h1>Mi cuenta</h1>
+
+    <section class="account-info">
+      <p><strong>Nombre:</strong> <span id="info-nombre"></span></p>
+      <p><strong>Correo:</strong> <span id="info-email"></span></p>
+    </section>
+
+    <section class="account-form">
+      <h2>Cambiar contraseña</h2>
+      <form id="password-form">
+        <label for="new-pass">Nueva contraseña</label>
+        <input type="password" id="new-pass" required minlength="6">
+
+        <label for="confirm-pass">Confirmar contraseña</label>
+        <input type="password" id="confirm-pass" required minlength="6">
+
+        <p class="form-message" id="password-message"></p>
+        <button type="submit">Actualizar contraseña</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/session.js"></script>
+  <script src="js/usuario.js"></script>
+</body>
+</html>
