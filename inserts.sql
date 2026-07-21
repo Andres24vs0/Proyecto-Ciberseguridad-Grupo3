@@ -1,6 +1,4 @@
--- ================================================
--- 1. INSERTAR 20 USUARIOS DE PRUEBA
--- ================================================
+-- Insertar 20 usuarios
 INSERT INTO usuarios (nombre, email, contra) VALUES
 ('Carlos Gómez', 'carlos.gomez@ejemplo.com', 'pass1234'),
 ('Ana Martínez', 'ana.martinez@ejemplo.com', 'anaPass2024'),
@@ -23,10 +21,7 @@ INSERT INTO usuarios (nombre, email, contra) VALUES
 ('Andrés Gil', 'andres.gil@ejemplo.com', 'andres_pwd'),
 ('Paula Reyes', 'paula.reyes@ejemplo.com', 'paula_safe');
 
-
--- ================================================
--- 2. INSERTAR 20 PRODUCTOS DE PRUEBA
--- ================================================
+-- Insertar 20 productos
 INSERT INTO productos (nombre, descripcion, precio, stock) VALUES
 ('Laptop Gamer', 'Laptop procesador Intel i7, 16GB RAM y GPU RTX 4060', 1450.00, 15),
 ('Teclado Mecánico', 'Teclado RGB switch azul distribución en español', 65.50, 35),
