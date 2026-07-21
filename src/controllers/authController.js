@@ -3,6 +3,40 @@
 
 import pool from '../config/db.js';
 
+//Funcion de Registro para los usuarios
+export async function register(req, res) {
+    const { nombre, email, contra } = req.body;
+
+    //Validación básica de campos requeridos
+    if (!nombre || !email || !contra) {
+        return res.status(400).json({ 
+            error: "Todos los campos son obligatorios." 
+        });
+    }
+
+    try {
+        //Inserción en la tabla usuarios
+        const query = "INSERT INTO usuarios (nombre, email, contra) VALUES ('" + nombre + "', '" + email + "', '" + contra + "') RETURNING id, nombre, email";
+        const result = await pool.query(query);
+
+        return res.status(201).json({
+            message: "Usuario registrado exitosamente.",
+            usuario: result.rows[0]
+        });
+
+    } catch (error) {
+        //Error si el correo ya existe
+        if (error.code === '23505') {
+            return res.status(400).json({ 
+                error: "El correo electrónico ya se encuentra registrado." 
+            });
+        }
+        return res.status(500).json({ 
+            error: "Error interno del servidor al registrar el usuario." 
+        });
+    }
+}
+
 //Funcion Vulnerable y donde va la logica de la actualizacion de contraseña
 export async function updatePassword(req, res) {
     const { email, nuevacontra } = req.body;

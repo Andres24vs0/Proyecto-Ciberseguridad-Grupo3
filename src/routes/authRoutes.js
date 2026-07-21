@@ -5,4 +5,7 @@ import { updatePassword } from "../controllers/authController.js";
 // Superficie de ataque inicial: Modificación de contraseñas
 router.post("/update-password", updatePassword);
 
+//Ruta para el registro de nuevos usuarios
+router.post("/register", register);
+
 export default router;
