@@ -1,4 +1,4 @@
--- 1. Crear la primera tabla (Usuarios)
+-- Crear la tabla usuarios
 CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -6,7 +6,7 @@ CREATE TABLE usuarios (
     contra VARCHAR(255) NOT NULL
 );
 
--- 2. Crear la segunda tabla (Productos/Tareas vinculadas al usuario)
+-- Crear la tabla Productos
 CREATE TABLE productos (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
