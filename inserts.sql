@@ -1,0 +1,50 @@
+-- ================================================
+-- 1. INSERTAR 20 USUARIOS DE PRUEBA
+-- ================================================
+INSERT INTO usuarios (nombre, email, contra) VALUES
+('Carlos Gómez', 'carlos.gomez@ejemplo.com', 'pass1234'),
+('Ana Martínez', 'ana.martinez@ejemplo.com', 'anaPass2024'),
+('Luis Rodríguez', 'luis.rodriguez@ejemplo.com', 'luis_secure'),
+('Sofia López', 'sofia.lopez@ejemplo.com', 'sofia789'),
+('Javier Hernández', 'javier.h@ejemplo.com', 'javierPass'),
+('Elena Torres', 'elena.torres@ejemplo.com', 'elena2024!'),
+('Alejandro Díaz', 'alejandro.d@ejemplo.com', 'alex_clave'),
+('Carmen Ruiz', 'carmen.ruiz@ejemplo.com', 'carmen_db'),
+('Fernando Morales', 'fernando.m@ejemplo.com', 'fer12345'),
+('Valentina Castro', 'valentina.c@ejemplo.com', 'valen_secret'),
+('Ricardo Vargas', 'ricardo.vargas@ejemplo.com', 'rick_pass'),
+('Camila Mendoza', 'camila.m@ejemplo.com', 'cami_99'),
+('Gabriel Ortiz', 'gabriel.ortiz@ejemplo.com', 'gabo_key'),
+('Isabella Silva', 'isabella.s@ejemplo.com', 'isa_2024'),
+('Mateo Ramos', 'mateo.ramos@ejemplo.com', 'mateo_00'),
+('Lucía Romero', 'lucia.romero@ejemplo.com', 'lucia_pass'),
+('Daniel Navarro', 'daniel.n@ejemplo.com', 'dani_clave'),
+('Mariana Delgado', 'mariana.d@ejemplo.com', 'mariana_123'),
+('Andrés Gil', 'andres.gil@ejemplo.com', 'andres_pwd'),
+('Paula Reyes', 'paula.reyes@ejemplo.com', 'paula_safe');
+
+
+-- ================================================
+-- 2. INSERTAR 20 PRODUCTOS DE PRUEBA
+-- ================================================
+INSERT INTO productos (nombre, descripcion, precio, stock) VALUES
+('Laptop Gamer', 'Laptop procesador Intel i7, 16GB RAM y GPU RTX 4060', 1450.00, 15),
+('Teclado Mecánico', 'Teclado RGB switch azul distribución en español', 65.50, 35),
+('Monitor 27"', 'Monitor IPS 144Hz 1ms Full HD con tecnología FreeSync', 220.00, 12),
+('Auriculares Bluetooth', 'Auriculares circumaurales con cancelación activa de ruido', 85.00, 40),
+('Disco Duro Externo 2TB', 'Almacenamiento portátil USB 3.0 para respaldo', 75.99, 25),
+('Memoria RAM 16GB', 'Módulo DDR4 3200MHz para computadora de escritorio', 45.00, 50),
+('Silla Ergonómica', 'Silla de escritorio transpirable con soporte lumbar', 180.00, 8),
+('Cámara Web HD', 'Webcam 1080p con micrófono estéreo integrado', 35.00, 30),
+('Impresora Multifuncional', 'Impresora a color con conexión Wi-Fi y escáner', 130.00, 10),
+('Tablet 10 pulgadas', 'Tablet Android con pantalla FHD y 64GB almacenamiento', 190.00, 18),
+('Cargador Carga Rápida', 'Cargador USB-C de 65W para laptop y smartphones', 25.00, 60),
+('Mando de Juego', 'Gamepad inalámbrico compatible con PC y consola', 50.00, 22),
+('Tarjeta de Video', 'GPU RTX 3060 12GB GDDR6', 380.00, 7),
+('Micrófono USB', 'Micrófono de condensador ideal para podcast y streaming', 55.00, 15),
+('Router Wi-Fi 6', 'Enrutador Gigabit de alta velocidad para juegos', 95.00, 20),
+('Pendrive 128GB', 'Memoria USB 3.2 metálica de alta velocidad', 18.50, 100),
+('Base Enfriadora Laptop', 'Soporte con 5 ventiladores silenciosos y luces LED', 28.00, 30),
+('Altavoces de Escritorio', 'Parlantes estéreo 2.0 con alimentación por USB', 22.00, 40),
+('Disco SSD NVMe 1TB', 'Unidad de estado sólido M.2 PCIe 4.0 ultra rápida', 90.00, 28),
+('Hub USB-C 7 en 1', 'Adaptador con HDMI 4K, lector SD y 3 puertos USB 3.0', 32.50, 45);
