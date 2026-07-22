@@ -1,13 +1,11 @@
 import { Pool } from 'pg';
 
-// Configuración base de la base de datos relacional
-// Los datos actuales son de ejemplo, hay que conversar que credenciales usar para la conexión 
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'ciberseguridad_db',
-    password: 'password123',
-    port: 5432,
+    user: process.env.DB_USER || 'app_grupo3',
+    host: process.env.DB_HOST || 'localhost',
+    database: process.env.DB_NAME || 'proyecto_grupo3',
+    password: process.env.DB_PASSWORD,
+    port: Number(process.env.DB_PORT) || 5432,
 });
 
 export default pool;

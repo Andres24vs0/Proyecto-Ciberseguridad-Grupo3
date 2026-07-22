@@ -13,14 +13,23 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 1. Indicar a Express dónde está el frontend
+// Indicar a Express dónde está el frontend
 app.use(express.static(join(__dirname, "public")));
+
+// Registro de tráfico (Access Log)
+app.use((req, res, next) => {
+    const timestamp = new Date().toLocaleString('es-VE', { timeZone: 'America/Caracas' });
+    
+    // Esto imprimirá CADA petición que reciba el servidor
+    console.log(`[ACCESS LOG - ${timestamp}] IP: ${req.ip} | Método: ${req.method} | Ruta solicitada: ${req.originalUrl}`);
+    next();
+});
 
 // Enrutadores de la API
 app.use("/api/users", authRoutes);
 app.use("/api/products", productRoutes);
 
-// 2. Ruta base que sirve el HTML principal
+// Ruta base que sirve el HTML principal
 app.get("/", (req, res) => {
     res.sendFile(join(__dirname, "public", "index.html"));
 });
