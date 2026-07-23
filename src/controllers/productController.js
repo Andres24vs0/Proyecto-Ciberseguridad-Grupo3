@@ -1,4 +1,4 @@
-const pool = require('../config/db');
+import pool from '../config/db.js';
 
 /* En este controlador se manejarán las operaciones relacionadas con los productos 
 incluyendo la consulta de detalles a través de parámetros en la URL */
