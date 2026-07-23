@@ -9,7 +9,7 @@ incluyendo la consulta de detalles a través de parámetros en la URL */
 // Rechazando con `400 Bad Request` si es un tipo de dato inválido
 
 // Carga la lista completa de productos para la vista del catálogo
-const getAllProducts = async (req, res) => {
+export const getAllProducts = async (req, res) => {
     try {
         // Consultamos la base de datos PostgreSQL para obtener todos los productos
         const result = await pool.query('SELECT * FROM productos');
@@ -23,7 +23,7 @@ const getAllProducts = async (req, res) => {
 
 // Busca los detalles de UN solo producto por su ID en la URL (ej: /api/products/details?id=1)
     // Aquí el Red Team ataca enviando arreglos (?id[]=1&id[]=2) para romper Node.js
-const getProductDetails = async (req, res) => {
+export const getProductDetails = async (req, res) => {
     // Se extrae la variable 'id' que viene en los parámetros de la URL
     const { id } = req.query;
 
@@ -72,7 +72,4 @@ const getProductDetails = async (req, res) => {
     }
 };
 
-module.exports = {
-    getAllProducts,
-    getProductDetails
-};
+
