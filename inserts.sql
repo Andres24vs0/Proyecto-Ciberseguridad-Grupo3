@@ -4,7 +4,7 @@ TRUNCATE TABLE sesiones RESTART IDENTITY CASCADE;
 TRUNCATE TABLE productos RESTART IDENTITY CASCADE;
 TRUNCATE TABLE usuarios RESTART IDENTITY CASCADE;
 
--- Insertar 20 usuarios
+-- Insertar 20 usuarios (versión vulnerable)
 /*INSERT INTO usuarios (nombre, email, contra) VALUES
 ('Carlos Gómez', 'carlos.gomez@ejemplo.com', 'pass1234'),
 ('Ana Martínez', 'ana.martinez@ejemplo.com', 'anaPass2024'),
@@ -80,3 +80,5 @@ INSERT INTO productos (nombre, descripcion, precio, stock) VALUES
 ('Altavoces de Escritorio', 'Parlantes estéreo 2.0 con alimentación por USB', 22.00, 40),
 ('Disco SSD NVMe 1TB', 'Unidad de estado sólido M.2 PCIe 4.0 ultra rápida', 90.00, 28),
 ('Hub USB-C 7 en 1', 'Adaptador con HDMI 4K, lector SD y 3 puertos USB 3.0', 32.50, 45);
+
+COMMIT;
