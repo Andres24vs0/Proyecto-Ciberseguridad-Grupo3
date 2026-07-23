@@ -9,7 +9,7 @@ incluyendo la consulta de detalles a través de parámetros en la URL */
 // Rechazando con `400 Bad Request` si es un tipo de dato inválido
 
 // Carga la lista completa de productos para la vista del catálogo
-const getProducts = async (req, res) => {
+const getAllProducts = async (req, res) => {
     try {
         // Consultamos la base de datos PostgreSQL para obtener todos los productos
         const result = await pool.query('SELECT * FROM productos');
@@ -73,6 +73,6 @@ const getProductDetails = async (req, res) => {
 };
 
 module.exports = {
-    getProducts,
+    getAllProducts,
     getProductDetails
 };
