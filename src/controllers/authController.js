@@ -98,7 +98,7 @@ export async function updatePassword(req, res) {
         //Ruptura de autenticacion al actualizar la contraseña sin validar la identidad
         return res.status(200).json({ 
             message: "Contraseña actualizada exitosamente.",
-            usuario_modificado: result.rows.email
+            usuario_modificado: result.rows.map(row => row.email) //Linea vulnerable, devuelve todas las respuestas del query
         });
 
     } catch (error) {
